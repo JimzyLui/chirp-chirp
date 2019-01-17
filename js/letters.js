@@ -34,7 +34,7 @@ var counter = {
   z: 0
 };
 
-function countLetters(counter, sample_text) {
+function countLetters(sample_text) {
   // FIX ME
   if (sample_text.length === 0) {
     return;
@@ -49,11 +49,11 @@ function countLetters(counter, sample_text) {
     }
   });
 
-  countLetters(counter, arrWords.join(" "));
+  countLetters(arrWords.join(" "));
   return;
 }
 
 $(document).ready(function() {
-  countLetters(counter, sample_text);
+  countLetters(sample_text);
   $("#result").html(JSON.stringify(counter));
 });
