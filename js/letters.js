@@ -6,20 +6,54 @@ cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
 proident, sunt in culpa qui officia deserunt mollit anim id est laborum.`;
 
 var counter = {
-  "a" : 0,  "b" : 0,  "c" : 0,  "d" : 0,
-  "e" : 0,  "f" : 0,  "g" : 0,  "h" : 0,
-  "i" : 0,  "j" : 0,  "k" : 0,  "l" : 0,
-  "m" : 0,  "n" : 0,  "o" : 0,  "p" : 0,
-  "q" : 0,  "r" : 0,  "s" : 0,  "t" : 0,
-  "u" : 0,  "v" : 0,  "w" : 0,  "x" : 0,
-  "y" : 0,  "z" : 0
-}
+  a: 0,
+  b: 0,
+  c: 0,
+  d: 0,
+  e: 0,
+  f: 0,
+  g: 0,
+  h: 0,
+  i: 0,
+  j: 0,
+  k: 0,
+  l: 0,
+  m: 0,
+  n: 0,
+  o: 0,
+  p: 0,
+  q: 0,
+  r: 0,
+  s: 0,
+  t: 0,
+  u: 0,
+  v: 0,
+  w: 0,
+  x: 0,
+  y: 0,
+  z: 0
+};
 
-function countLetters(counter, sample_text){
+function countLetters(sample_text) {
   // FIX ME
+  if (sample_text.length === 0) {
+    return;
+  }
+  // debugger;
+  const arrWords = sample_text.split(" ");
+  const word = arrWords.pop();
+  word.split("").forEach(x => {
+    x = x.toLowerCase();
+    if (counter.hasOwnProperty(x)) {
+      counter[x]++;
+    }
+  });
+
+  countLetters(arrWords.join(" "));
+  return;
 }
 
-$(document).ready(function(){
-  countLetters(counter, sample_text);
+$(document).ready(function() {
+  countLetters(sample_text);
   $("#result").html(JSON.stringify(counter));
 });
